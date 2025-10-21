@@ -10,6 +10,7 @@ Introduction
 <!-- column: 0 -->
 ![](images/profile2.png)
 <!-- font_size: 2 -->
+<!-- alignment: center -->
 Mark Dickie
 <!-- column: 1 -->
 <!-- font_size: 2 -->
@@ -72,3 +73,15 @@ Dev Shell with Nix
 Dev Shell with Nix
 ---
 <!-- font_size: 2 -->
+# Benefits
+<!-- pause -->
+* Dependencies are part of the repository
+<!-- pause -->
+* Versions of all dependencies are pinned
+<!-- pause -->
+* Onboarding of developers becomes easy
+<!-- pause -->
+* Makes environments modular and re-usable
+<!-- pause -->
+
+<!-- end_slide -->
