@@ -146,4 +146,8 @@ Ask away!
 Links
 ---
 <!-- font_size: 2 -->
-Links will go here
+https://github.com/deephack1982/nix-presentation
+
+https://www.nixos.org
+
+https://direnv.net/
