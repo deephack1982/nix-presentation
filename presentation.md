@@ -23,7 +23,17 @@ Mark Dickie
 <!-- pause -->
 * Gamer and private pilot also
 <!-- end_slide -->
-
+Overview
+---
+<!-- font_size: 2 -->
+# Define Nix
+# Show a small project
+# Demonstrate a dev shell using a Nix flake
+# Demonstrate a container image using Nix flakes
+# Talk about build pipelines with Nix
+# Demonstrate a Nix package
+# Answer questions
+<!-- end_slide -->
 Definition
 ---
 <!-- font_size: 2 -->
@@ -68,7 +78,7 @@ Dev Shell with Nix
 ---
 <!-- font_size: 2 -->
 # Demo
-
+![](images/terminal.png)
 <!-- end_slide -->
 Dev Shell with Nix
 ---
@@ -83,5 +93,57 @@ Dev Shell with Nix
 <!-- pause -->
 * Makes environments modular and re-usable
 <!-- pause -->
-
 <!-- end_slide -->
+Generate a container
+---
+<!-- font_size: 2 -->
+# Demo
+![](images/terminal.png)
+<!-- end_slide -->
+Generate a container
+---
+<!-- font_size: 2 -->
+# Benefits
+<!-- pause -->
+* Can be used for development or build pipelines
+<!-- pause -->
+* In webapp and similar contexts this could also be used as a deployable production environment
+<!-- pause -->
+* Multiple container definitions could be contained in the flake with shared code
+<!-- pause -->
+<!-- end_slide -->
+Build pipelines
+---
+<!-- font_size: 2 -->
+# Multiple approaches
+<!-- pause -->
+* Build inside the generated container
+<!-- pause -->
+* Run the devShell from the flake to build
+<!-- pause -->
+* Use nix to build the package directly
+<!-- end_slide -->
+Build a Nix package
+---
+<!-- font_size: 2 -->
+# Demo
+![](images/terminal.png)
+<!-- end_slide -->
+Nix Details
+---
+<!-- font_size: 2 -->
+# Nix Store
+<!-- pause -->
+# Binary Caching
+<!-- pause -->
+# Garbage Collection
+<!-- end_slide -->
+Questions?
+---
+<!-- font_size: 2 -->
+Ask away!
+<!-- end_slide -->
+Links
+---
+<!-- font_size: 2 -->
+Links will go here

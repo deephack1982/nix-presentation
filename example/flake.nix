@@ -17,13 +17,12 @@
       let
         pkgs = import nixpkgs {
           inherit system;
-          # overlays = [ overlay ];
           config.allowUnfree = true;
         };
 
-        dependencies = with pkgs; [
+        # Here are all the packages we would like available
+        devDeps = with pkgs; [
           clang
-          clang-tools
           cmake
           codespell
           conan
@@ -32,7 +31,13 @@
           gtest
           lcov
           vcpkg
-          vcpkg-tool
+        ];
+
+        # Additional packages for runtime use in the container
+        containerDeps = with pkgs; [
+          bashInteractive
+          coreutils
+          findutils
         ];
 
         hook = ''
@@ -41,9 +46,52 @@
         '';
       in
       {
+        # Dev shell
         devShells.default = pkgs.mkShell {
-          buildInputs = dependencies;
+          buildInputs = devDeps;
           shellHook = hook;
+        };
+
+        # Container image
+        packages.devContainer = pkgs.dockerTools.buildImage {
+          name = "cpp-dev";
+          tag = "latest";
+
+          copyToRoot = pkgs.buildEnv {
+            name = "image-root";
+            paths = devDeps ++ containerDeps;
+          };
+
+          extraCommands = ''
+            mkdir -p ./tmp
+          '';
+
+          config = {
+            Cmd = [ "bash" ];
+            Env = [
+              "PATH=${pkgs.lib.makeBinPath devDeps}:${pkgs.lib.makeBinPath containerDeps}:$PATH"
+            ];
+            WorkingDir = "/workspace";
+          };
+        };
+
+        # Nix package build instructions
+        packages.default = pkgs.stdenv.mkDerivation {
+          pname = "Hello";
+          version = "0.1";
+
+          src = ./.;
+
+          nativeBuildInputs = [ pkgs.clang ];
+
+          buildPhase = ''
+            clang main.c
+          '';
+
+          installPhase = ''
+            mkdir -p $out/bin
+            cp a.out $out/bin/hello
+          '';
         };
       }
     );
