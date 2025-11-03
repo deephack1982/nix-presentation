@@ -146,8 +146,14 @@ Ask away!
 Links
 ---
 <!-- font_size: 2 -->
+## Presentation
 https://github.com/deephack1982/nix-presentation
 
+## More information about Nix
 https://www.nixos.org
 
+## More information about direnv
 https://direnv.net/
+
+## My BlueSky
+https://bsky.app/profile/deephackontech.bsky.social
